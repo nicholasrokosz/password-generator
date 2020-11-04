@@ -4,6 +4,7 @@ var generateBtn = document.querySelector("#generate");
 // generatePassword definition
 function generatePassword() {
 
+  // variable declarations
   const lower = 'abcdefghijklmnopqrstuvwxyz'
   const upper = lower.toUpperCase()
   const numeric = '1234567890'
@@ -11,39 +12,45 @@ function generatePassword() {
   let chars = ''
   let pass = ''
 
+  // get password length from user
   passLength = parseInt(
     prompt("How long should your password be?\nEnter a whole number between 8 and 128 inclusive:")
   )
-  console.log(passLength);
-
+  // test for invalid input
   if (passLength < 8 || passLength > 128 || passLength === NaN) { // <-- ??????????????
     alert("That isn't a whole number between 8 and 128");
     return;
   }
+  // get desired char types from user
   var includeLower = confirm("Select ok to include lowercase characters:")
+  var includeUpper = confirm("Select ok to include uppercase characters:")
+  var includeNumeric = confirm("Select ok to include numeric characters:")
+  var includeSpecial = confirm("Select ok to include special characters:")
+
+  // build desired char type string
   if (includeLower) {
     chars += lower;
   }
-  var includeUpper = confirm("Select ok to include uppercase characters:")
   if (includeUpper) {
     chars += upper;
   }
-  var includeNumeric = confirm("Select ok to include numeric characters:")
   if (includeNumeric) {
     chars += numeric;
   }
-  var includeSpecial = confirm("Select ok to include special characters:")
   if (includeSpecial) {
     chars += special;
   }
+
+  // test for invalid input
   if (!includeLower && !includeUpper && !includeNumeric && !includeSpecial) {
     alert("You must include at least one type of character");
     return;
   }
+
+  // build and return pseudo-random password
   for (i = 0; i < passLength; i++) {
     pass += chars[Math.floor(Math.random() * chars.length)]
   }
-  // console.log(pass);
   return pass;
 }
 
