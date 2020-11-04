@@ -11,20 +11,18 @@ function generatePassword() {
   let chars = "";
   let pass = "";
 
+          // const passLength = parseInt(
+          //   prompt("How long should your password be?\nEnter a whole number between 8 and 128 inclusive:")
+          // )
+          //console.log(passLength)
   // get password length from user
-  // const passLength = parseInt(
-  //   prompt("How long should your password be?\nEnter a whole number between 8 and 128 inclusive:")
-  // )
-  //console.log(passLength)
-  // test for invalid input
   const passLength = document.getElementById("myRange").value;
 
-  // if (passLength < 8 || passLength > 128 || isNaN(passLength)) {
-  //   alert("That isn't a whole number between 8 and 128");
-  //   return;
-  // }
-  // get desired char types from user
-  // Special thanks to Sergey
+          // if (passLength < 8 || passLength > 128 || isNaN(passLength)) {
+          //   alert("That isn't a whole number between 8 and 128");
+          //   return;
+          // }
+  // get desired char types from user (special thanks to Sergey)
   const includeLower = document.getElementById("lower");
   const includeUpper = document.getElementById("upper");
   const includeNumeric = document.getElementById("numeric");
@@ -44,6 +42,7 @@ function generatePassword() {
     chars += special;
   }
 
+  // return nothing if no char are included
   if (
     includeLower.checked == false &&
     includeUpper.checked == false &&
@@ -53,11 +52,11 @@ function generatePassword() {
     return "";
   }
 
-  // // test for invalid input
-  // if (!includeLower && !includeUpper && !includeNumeric && !includeSpecial) {
-  //   alert("You must include at least one type of character");
-  //   return;
-  // }
+  
+          // if (!includeLower && !includeUpper && !includeNumeric && !includeSpecial) {
+          //   alert("You must include at least one type of character");
+          //   return;
+          // }
 
   // build and return pseudo-random password
   for (i = 0; i < passLength; i++) {
