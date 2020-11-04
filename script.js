@@ -7,9 +7,9 @@ function generatePassword() {
   const lower = 'abcdefghijklmnopqrstuvwxyz'
   const upper = lower.toUpperCase()
   const numeric = '1234567890'
-  const special = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~" // <-- ???????????? " and \
+  const special = "!#$%&'()*+,-./:;><?=@[]^_`{|}~" // <-- ???????????? " and \
   let chars = ''
-  let password = ''
+  let pass = ''
 
   passLength = parseInt(
     prompt("How long should your password be?\nEnter a whole number between 8 and 128 inclusive:")
@@ -41,9 +41,10 @@ function generatePassword() {
     return;
   }
   for (i = 0; i < passLength; i++) {
-    password += chars[Math.floor(Math.random() * chars.length)]
+    pass += chars[Math.floor(Math.random() * chars.length)]
   }
-  console.log(password);
+  // console.log(pass);
+  return pass;
 }
 
 // Write password to the #password input
