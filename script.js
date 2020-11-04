@@ -22,10 +22,10 @@ function generatePassword() {
     return;
   }
   // get desired char types from user
-  var includeLower = confirm("Select ok to include lowercase characters:")
-  var includeUpper = confirm("Select ok to include uppercase characters:")
-  var includeNumeric = confirm("Select ok to include numeric characters:")
-  var includeSpecial = confirm("Select ok to include special characters:")
+  const includeLower = confirm("Select ok to include lowercase characters:")
+  const includeUpper = confirm("Select ok to include uppercase characters:")
+  const includeNumeric = confirm("Select ok to include numeric characters:")
+  const includeSpecial = confirm("Select ok to include special characters:")
 
   // build desired char type string
   if (includeLower) {
