@@ -242,10 +242,12 @@ label {
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
   }
+
   /* Mouse-over effects */
 .slider:hover {
     opacity: 1; /* Fully shown on mouse-over */
   }
+
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
@@ -255,15 +257,18 @@ label {
     background: #2196F3; /* Green background */
     cursor: pointer; /* Cursor on hover */
   }
-  .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #2196F3; /* Green background */
-    cursor: pointer; /* Cursor on hover */
-  }
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #2196F3; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
 .slidecontainer p {
     text-align: center;
 }
+
 .superscript {
   position: relative;
   top: -.5em;
