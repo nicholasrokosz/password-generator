@@ -35,7 +35,8 @@ a {
   color: hsl(206, 17%, 28%);
 }
 a:hover {
-  color: green
+  color: black;
+  font-weight: bold;
 }
 .card {
   background-color: hsl(0, 0%, 100%);
