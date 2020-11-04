@@ -97,7 +97,7 @@ a:hover {
   cursor: pointer;
 }
 
-button:focus {
+button:focus, #password:focus {
   outline: none;
 }
 
