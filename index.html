@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style2.css" />
   </head>
   <body>
     <div class="wrapper">
@@ -14,7 +14,41 @@
       </header>
       <div class="card">
         <div class="card-header">
-          <h2>Generate a Password</h2>
+          <!-- <h2>Generate a Password</h2> -->
+          <div class="slidecontainer">
+            <p>password length: <span id="demo"></span></p>
+            <input
+              type="range"
+              min="8"
+              max="128"
+              value="16"
+              class="slider2"
+              id="myRange"
+            />
+          </div>
+          <hr />
+          <div class="toggles">
+            <label class="switch">
+              <input type="checkbox" id="lower" checked />
+              <span class="slider round"></span>
+              <p>lowercase</p>
+            </label>
+            <label class="switch">
+              <input type="checkbox" id="upper" checked />
+              <span class="slider round"></span>
+              <p>uppercase</p>
+            </label>
+            <label class="switch">
+              <input type="checkbox" id="numeric" checked />
+              <span class="slider round"></span>
+              <p>numerals</p>
+            </label>
+            <label class="switch">
+              <input type="checkbox" id="special" checked />
+              <span class="slider round"></span>
+              <p>symbols</p>
+            </label>
+          </div>
         </div>
         <div class="card-body">
           <textarea

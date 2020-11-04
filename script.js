@@ -3,53 +3,65 @@ var generateBtn = document.querySelector("#generate");
 
 // generatePassword definition
 function generatePassword() {
-
   // variable declarations
-  const lower = 'abcdefghijklmnopqrstuvwxyz'
-  const upper = lower.toUpperCase()
-  const numeric = '1234567890'
-  const special = "!#$%&'()*+,-./:;><?=@[]^_`{|}~" // <-- ???????????? " and \
-  let chars = ''
-  let pass = ''
+  const lower = "abcdefghijklmnopqrstuvwxyz";
+  const upper = lower.toUpperCase();
+  const numeric = "1234567890";
+  const special = "!#$%&\"'()*+,-./\\:;><?=@[]^_`{|}~";
+  let chars = "";
+  let pass = "";
 
   // get password length from user
-  passLength = parseInt(
-    prompt("How long should your password be?\nEnter a whole number between 8 and 128 inclusive:")
-  )
+  // const passLength = parseInt(
+  //   prompt("How long should your password be?\nEnter a whole number between 8 and 128 inclusive:")
+  // )
+  //console.log(passLength)
   // test for invalid input
-  if (passLength < 8 || passLength > 128 || passLength === NaN) { // <-- ??????????????
-    alert("That isn't a whole number between 8 and 128");
-    return;
-  }
+  const passLength = document.getElementById("myRange").value;
+
+  // if (passLength < 8 || passLength > 128 || isNaN(passLength)) {
+  //   alert("That isn't a whole number between 8 and 128");
+  //   return;
+  // }
   // get desired char types from user
-  const includeLower = confirm("Select ok to include lowercase characters:")
-  const includeUpper = confirm("Select ok to include uppercase characters:")
-  const includeNumeric = confirm("Select ok to include numeric characters:")
-  const includeSpecial = confirm("Select ok to include special characters:")
+  // Special thanks to Sergey
+  const includeLower = document.getElementById("lower");
+  const includeUpper = document.getElementById("upper");
+  const includeNumeric = document.getElementById("numeric");
+  const includeSpecial = document.getElementById("special");
 
   // build desired char type string
-  if (includeLower) {
+  if (includeLower.checked) {
     chars += lower;
   }
-  if (includeUpper) {
+  if (includeUpper.checked) {
     chars += upper;
   }
-  if (includeNumeric) {
+  if (includeNumeric.checked) {
     chars += numeric;
   }
-  if (includeSpecial) {
+  if (includeSpecial.checked) {
     chars += special;
   }
 
-  // test for invalid input
-  if (!includeLower && !includeUpper && !includeNumeric && !includeSpecial) {
-    alert("You must include at least one type of character");
-    return;
+  if (
+    includeLower.checked == false &&
+    includeUpper.checked == false &&
+    includeNumeric.checked == false &&
+    includeSpecial.checked == false
+  ) {
+    return "";
   }
+
+  // // test for invalid input
+  // if (!includeLower && !includeUpper && !includeNumeric && !includeSpecial) {
+  //   alert("You must include at least one type of character");
+  //   return;
+  // }
 
   // build and return pseudo-random password
   for (i = 0; i < passLength; i++) {
-    pass += chars[Math.floor(Math.random() * chars.length)]
+    pass += chars[Math.floor(Math.random() * chars.length)];
   }
   return pass;
 }
@@ -60,8 +72,13 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
 
+slider.oninput = function () {
+  output.innerHTML = this.value;
+};
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
